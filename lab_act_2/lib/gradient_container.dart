@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lab_act_2/styled_text.dart';
+import 'styled_text.dart';
 
 
 class GradientContainer extends StatelessWidget {
@@ -14,8 +14,8 @@ class GradientContainer extends StatelessWidget {
           colors: [Colors.blue, Colors.greenAccent],
         ),
       ),
-      child: const Center(
-        child: StyledText()
+      child: Center(
+        child: StyledText('Shaina MaryJoh')
         ),
     );
   }
