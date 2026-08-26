@@ -15,7 +15,7 @@ class GradientContainer extends StatelessWidget {
         ),
       ),
       child: Center(
-        child: StyledText('Shaina MaryJoh')
+        child: Image.asset('assets/dice-images/dice-3.png')
         ),
     );
   }
