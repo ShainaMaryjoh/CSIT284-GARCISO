@@ -110,12 +110,27 @@ void restartQuiz() {
               ),
               child: SizedBox(
                 width: 350,
-                child: ElevatedButton(
-              onPressed: () {
-  answerQuestion(answer);
-},
-                  child: Text(answer),
-                ),
+                child:ElevatedButton(
+  onPressed: () {
+    answerQuestion(answer);
+  },
+  style: ElevatedButton.styleFrom(
+    padding: const EdgeInsets.symmetric(
+      vertical: 14,
+      horizontal: 20,
+    ),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20),
+    ),
+  ),
+  child: Text(
+    answer,
+    style: const TextStyle(
+      fontSize: 18,
+    ),
+  ),
+),
+                
               ),
             );
           },
