@@ -16,6 +16,8 @@ var quizCompleted = false;
 var currentQuestionIndex = 0;
 var correctAnswers = 0;
 
+List<String> selectedAnswers = [];
+
   void startQuiz() {
     setState(() {
       quizStarted = true;
@@ -24,6 +26,7 @@ var correctAnswers = 0;
 
  void answerQuestion(String selectedAnswer) {
   setState(() {
+    selectedAnswers.add(selectedAnswer);
     if (selectedAnswer == questions[currentQuestionIndex].correctAnswer) {
       correctAnswers++;
     }
@@ -42,6 +45,7 @@ void restartQuiz() {
     quizCompleted = false;
     currentQuestionIndex = 0;
     correctAnswers = 0;
+    selectedAnswers = [];
   });
 }
 
