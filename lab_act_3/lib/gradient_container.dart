@@ -11,22 +11,46 @@ class GradientContainer extends StatefulWidget {
 }
 
 class _GradientContainerState extends State<GradientContainer> {
- var quizStarted = false;
+var quizStarted = false;
+var quizCompleted = false;
 var currentQuestionIndex = 0;
+var correctAnswers = 0;
 
   void startQuiz() {
     setState(() {
       quizStarted = true;
     });
   }
-  void answerQuestion() {
+
+ void answerQuestion(String selectedAnswer) {
   setState(() {
-    currentQuestionIndex++;
+    if (selectedAnswer == questions[currentQuestionIndex].correctAnswer) {
+      correctAnswers++;
+    }
+
+    if (currentQuestionIndex < questions.length - 1) {
+      currentQuestionIndex++;
+    } else {
+      quizCompleted = true;
+    }
   });
 }
 
   @override
   Widget build(context) {
+
+    if (quizCompleted) {
+    return const Center(
+      child: Text(
+        'Quiz Completed!',
+        style: TextStyle(
+          fontSize: 32,
+          color: Colors.white,
+        ),
+      ),
+    );
+  }
+
    if (quizStarted) {
   return Center(
     child: Column(
@@ -36,7 +60,7 @@ var currentQuestionIndex = 0;
           questions[currentQuestionIndex].question,
           style: const TextStyle(
             fontSize: 28,
-            color: Colors.white,
+            color: Color.fromARGB(255, 2, 58, 8),
           ),
           textAlign: TextAlign.center,
         ),
@@ -50,7 +74,9 @@ var currentQuestionIndex = 0;
               child: SizedBox(
                 width: 350,
                 child: ElevatedButton(
-              onPressed: answerQuestion,
+              onPressed: () {
+  answerQuestion(answer);
+},
                   child: Text(answer),
                 ),
               ),
@@ -86,7 +112,7 @@ var currentQuestionIndex = 0;
               'Test Your Flutter Knowledge!',
               style: TextStyle(
                 fontSize: 24,
-                color: Colors.white,
+                color: Color.fromARGB(255, 242, 242, 242),
               ),
               textAlign: TextAlign.center,
             ),
