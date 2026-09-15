@@ -50,34 +50,44 @@ void restartQuiz() {
 
   if (quizCompleted) {
   return Center(
-    child: Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        const Text(
-          'Quiz Completed!',
-          style: TextStyle(
-            fontSize: 32,
-            color: Color.fromARGB(255, 2, 72, 15),
+    child: Container(
+      width: 350,
+      padding: const EdgeInsets.all(30),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.9),
+        borderRadius: BorderRadius.circular(25),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Text(
+            'Quiz Completed!',
+            style: TextStyle(
+              fontSize: 32,
+              color: Color.fromARGB(255, 2, 72, 15),
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        const SizedBox(height: 20),
-        Text(
-          'You answered $correctAnswers out of ${questions.length} questions correctly!',
-          style: const TextStyle(
-            fontSize: 22,
-            color: Color.fromARGB(255, 2, 80, 14),
+          const SizedBox(height: 20),
+          Text(
+            'You answered $correctAnswers out of ${questions.length} questions correctly!',
+            style: const TextStyle(
+              fontSize: 22,
+              color: Color.fromARGB(255, 2, 80, 14),
+            ),
+            textAlign: TextAlign.center,
           ),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 30),
-        ElevatedButton(
-  onPressed: restartQuiz,
-  child: const Text('Restart Quiz'),
-),
-      ],
+          const SizedBox(height: 30),
+          ElevatedButton(
+            onPressed: restartQuiz,
+            child: const Text('Restart Quiz'),
+          ),
+        ],
+      ),
     ),
   );
 }
+
 
    if (quizStarted) {
   return Center(
