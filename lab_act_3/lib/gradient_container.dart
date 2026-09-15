@@ -53,8 +53,10 @@ void restartQuiz() {
   Widget build(context) {
 
   if (quizCompleted) {
-  return Center(
-    child: Container(
+  return SingleChildScrollView(
+    child: Center(
+      child: Container(
+      
       width: 350,
       padding: const EdgeInsets.all(30),
       decoration: BoxDecoration(
@@ -81,14 +83,58 @@ void restartQuiz() {
             ),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 30),
-          ElevatedButton(
+          
+          const SizedBox(height: 20),
+
+...questions.asMap().entries.map(
+  (entry) {
+    final index = entry.key;
+    final question = entry.value;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '${index + 1}. ${question.question}',
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
+          const SizedBox(height: 5),
+          Text(
+            'Your answer: ${selectedAnswers[index]}',
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.black87,
+            ),
+          ),
+          Text(
+            'Correct answer: ${question.correctAnswer}',
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.green,
+            ),
+          ),
+        ],
+      ),
+    );
+  },
+),
+
+const SizedBox(height: 20),
+ElevatedButton(
+
             onPressed: restartQuiz,
             child: const Text('Restart Quiz'),
           ),
         ],
       ),
     ),
+  )
   );
 }
 
