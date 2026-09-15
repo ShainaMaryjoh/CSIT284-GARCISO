@@ -39,7 +39,7 @@ var correctAnswers = 0;
   @override
   Widget build(context) {
 
-   if (quizCompleted) {
+  if (quizCompleted) {
   return Center(
     child: Column(
       mainAxisSize: MainAxisSize.min,
@@ -48,7 +48,7 @@ var correctAnswers = 0;
           'Quiz Completed!',
           style: TextStyle(
             fontSize: 32,
-            color: Color.fromARGB(255, 0, 91, 33),
+            color: Color.fromARGB(255, 2, 72, 15),
           ),
         ),
         const SizedBox(height: 20),
@@ -56,9 +56,14 @@ var correctAnswers = 0;
           'You answered $correctAnswers out of ${questions.length} questions correctly!',
           style: const TextStyle(
             fontSize: 22,
-            color: Color.fromARGB(255, 0, 67, 33),
+            color: Color.fromARGB(255, 2, 80, 14),
           ),
           textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: 30),
+        ElevatedButton(
+          onPressed: () {},
+          child: const Text('Restart Quiz'),
         ),
       ],
     ),
