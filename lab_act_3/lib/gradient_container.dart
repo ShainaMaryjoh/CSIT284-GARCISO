@@ -39,17 +39,31 @@ var correctAnswers = 0;
   @override
   Widget build(context) {
 
-    if (quizCompleted) {
-    return const Center(
-      child: Text(
-        'Quiz Completed!',
-        style: TextStyle(
-          fontSize: 32,
-          color: Colors.white,
+   if (quizCompleted) {
+  return Center(
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const Text(
+          'Quiz Completed!',
+          style: TextStyle(
+            fontSize: 32,
+            color: Color.fromARGB(255, 0, 91, 33),
+          ),
         ),
-      ),
-    );
-  }
+        const SizedBox(height: 20),
+        Text(
+          'You answered $correctAnswers out of ${questions.length} questions correctly!',
+          style: const TextStyle(
+            fontSize: 22,
+            color: Color.fromARGB(255, 0, 67, 33),
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    ),
+  );
+}
 
    if (quizStarted) {
   return Center(
