@@ -84,6 +84,14 @@ void restartQuiz() {
     child: Column(
   mainAxisSize: MainAxisSize.min,
   children: [
+SizedBox(
+  width: 350,
+  child: LinearProgressIndicator(
+    value: (currentQuestionIndex + 1) / questions.length,
+  ),
+),
+const SizedBox(height: 15),
+
     Text(
       'Question ${currentQuestionIndex + 1} of ${questions.length}',
       style: const TextStyle(
