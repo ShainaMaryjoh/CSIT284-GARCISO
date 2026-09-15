@@ -93,14 +93,25 @@ void restartQuiz() {
       ),
     ),
     const SizedBox(height: 15),
-    Text(
-      questions[currentQuestionIndex].question,
-      style: const TextStyle(
-        fontSize: 28,
-        color: Color.fromARGB(255, 2, 58, 8),
-      ),
-      textAlign: TextAlign.center,
+
+    Container(
+  width: 350,
+  padding: const EdgeInsets.all(20),
+  decoration: BoxDecoration(
+    color: Colors.white.withOpacity(0.9),
+    borderRadius: BorderRadius.circular(20),
+  ),
+  child: Text(
+    questions[currentQuestionIndex].question,
+    style: const TextStyle(
+      fontSize: 28,
+      color: Color.fromARGB(255, 2, 58, 8),
+      fontWeight: FontWeight.bold,
     ),
+    textAlign: TextAlign.center,
+  ),
+),
+
         const SizedBox(height: 40),
         ...questions[currentQuestionIndex].answers.map(
           (answer) {
