@@ -105,13 +105,17 @@ void restartQuiz() {
             ),
           ),
           const SizedBox(height: 5),
-          Text(
-            'Your answer: ${selectedAnswers[index]}',
-            style: const TextStyle(
-              fontSize: 16,
-              color: Colors.black87,
-            ),
-          ),
+
+         Text(
+  'Your answer: ${selectedAnswers[index]}',
+  style: TextStyle(
+    fontSize: 16,
+    color: selectedAnswers[index] == question.correctAnswer
+        ? Colors.green
+        : Colors.red,
+    fontWeight: FontWeight.bold,
+  ),
+),
           Text(
             'Correct answer: ${question.correctAnswer}',
             style: const TextStyle(
