@@ -82,16 +82,25 @@ void restartQuiz() {
    if (quizStarted) {
   return Center(
     child: Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          questions[currentQuestionIndex].question,
-          style: const TextStyle(
-            fontSize: 28,
-            color: Color.fromARGB(255, 2, 58, 8),
-          ),
-          textAlign: TextAlign.center,
-        ),
+  mainAxisSize: MainAxisSize.min,
+  children: [
+    Text(
+      'Question ${currentQuestionIndex + 1} of ${questions.length}',
+      style: const TextStyle(
+        fontSize: 18,
+        color: Color.fromARGB(255, 1, 86, 58),
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    const SizedBox(height: 15),
+    Text(
+      questions[currentQuestionIndex].question,
+      style: const TextStyle(
+        fontSize: 28,
+        color: Color.fromARGB(255, 2, 58, 8),
+      ),
+      textAlign: TextAlign.center,
+    ),
         const SizedBox(height: 40),
         ...questions[currentQuestionIndex].answers.map(
           (answer) {
