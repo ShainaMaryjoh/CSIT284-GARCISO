@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'quiz.dart';
 import 'styled_text.dart';
+
 
 class GradientContainer extends StatelessWidget {
   const GradientContainer({super.key});
 
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -29,7 +31,14 @@ class GradientContainer extends StatelessWidget {
       const StyledText('Learn Flutter the fun way!'),
       const SizedBox(height: 30),
       TextButton(
-        onPressed: () {},
+       onPressed: () {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => const Quiz(),
+    ),
+  );
+},
         child: const Text(
           'Start Quiz',
           style: TextStyle(
