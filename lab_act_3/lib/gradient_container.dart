@@ -106,15 +106,31 @@ void restartQuiz() {
           ),
           const SizedBox(height: 5),
 
-         Text(
-  'Your answer: ${selectedAnswers[index]}',
-  style: TextStyle(
-    fontSize: 16,
-    color: selectedAnswers[index] == question.correctAnswer
-        ? Colors.green
-        : Colors.red,
-    fontWeight: FontWeight.bold,
-  ),
+        Row(
+  children: [
+    Icon(
+      selectedAnswers[index] == question.correctAnswer
+          ? Icons.check_circle
+          : Icons.cancel,
+      color: selectedAnswers[index] == question.correctAnswer
+          ? Colors.green
+          : Colors.red,
+      size: 20,
+    ),
+    const SizedBox(width: 8),
+    Expanded(
+      child: Text(
+        'Your answer: ${selectedAnswers[index]}',
+        style: TextStyle(
+          fontSize: 16,
+          color: selectedAnswers[index] == question.correctAnswer
+              ? Colors.green
+              : Colors.red,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  ],
 ),
           Text(
             'Correct answer: ${question.correctAnswer}',
