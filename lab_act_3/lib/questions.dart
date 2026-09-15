@@ -3,6 +3,8 @@ class QuizQuestion {
 
   final String question;
   final List<String> answers;
+
+  String get correctAnswer => answers[0];
 }
 
 const questions = [
