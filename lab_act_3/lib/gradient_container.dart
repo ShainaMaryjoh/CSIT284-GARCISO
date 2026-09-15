@@ -36,6 +36,15 @@ var correctAnswers = 0;
   });
 }
 
+void restartQuiz() {
+  setState(() {
+    quizStarted = false;
+    quizCompleted = false;
+    currentQuestionIndex = 0;
+    correctAnswers = 0;
+  });
+}
+
   @override
   Widget build(context) {
 
@@ -62,9 +71,9 @@ var correctAnswers = 0;
         ),
         const SizedBox(height: 30),
         ElevatedButton(
-          onPressed: () {},
-          child: const Text('Restart Quiz'),
-        ),
+  onPressed: restartQuiz,
+  child: const Text('Restart Quiz'),
+),
       ],
     ),
   );
