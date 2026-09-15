@@ -11,13 +11,19 @@ class GradientContainer extends StatefulWidget {
 }
 
 class _GradientContainerState extends State<GradientContainer> {
-  var quizStarted = false;
+ var quizStarted = false;
+var currentQuestionIndex = 0;
 
   void startQuiz() {
     setState(() {
       quizStarted = true;
     });
   }
+  void answerQuestion() {
+  setState(() {
+    currentQuestionIndex++;
+  });
+}
 
   @override
   Widget build(context) {
@@ -27,7 +33,7 @@ class _GradientContainerState extends State<GradientContainer> {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          questions[0].question,
+          questions[currentQuestionIndex].question,
           style: const TextStyle(
             fontSize: 28,
             color: Colors.white,
@@ -35,7 +41,7 @@ class _GradientContainerState extends State<GradientContainer> {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 40),
-        ...questions[0].answers.map(
+        ...questions[currentQuestionIndex].answers.map(
           (answer) {
             return Padding(
               padding: const EdgeInsets.symmetric(
@@ -44,7 +50,7 @@ class _GradientContainerState extends State<GradientContainer> {
               child: SizedBox(
                 width: 350,
                 child: ElevatedButton(
-                  onPressed: () {},
+              onPressed: answerQuestion,
                   child: Text(answer),
                 ),
               ),
