@@ -17,7 +17,7 @@ class GradientContainer extends StatelessWidget {
           ],
         ),
       ),
-      child: Center(
+     child: Center(
   child: Column(
     mainAxisSize: MainAxisSize.min,
     children: [
@@ -27,9 +27,22 @@ class GradientContainer extends StatelessWidget {
       ),
       const SizedBox(height: 30),
       const StyledText('Learn Flutter the fun way!'),
+      const SizedBox(height: 30),
+      TextButton(
+        onPressed: () {},
+        child: const Text(
+          'Start Quiz',
+          style: TextStyle(
+            fontSize: 24,
+            color: Colors.white,
+          ),
+        ),
+      ),
     ],
   ),
 ),
+
+
     );
   }
 }
