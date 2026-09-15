@@ -120,12 +120,12 @@ const SizedBox(height: 15),
   ),
 ),
 
-        const SizedBox(height: 40),
+        const SizedBox(height: 30),
         ...questions[currentQuestionIndex].answers.map(
           (answer) {
             return Padding(
               padding: const EdgeInsets.symmetric(
-                vertical: 6,
+                vertical: 8,
               ),
               child: SizedBox(
                 width: 350,
@@ -178,6 +178,7 @@ const SizedBox(height: 15),
               'assets/quiz-logo.png',
               width: 250,
             ),
+
             const SizedBox(height: 40),
             const Text(
               'Test Your Flutter Knowledge!',
