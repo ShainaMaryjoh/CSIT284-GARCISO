@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class GradientContainer extends StatelessWidget {
   const GradientContainer({super.key});
 
@@ -16,15 +17,12 @@ class GradientContainer extends StatelessWidget {
           ],
         ),
       ),
-      child: const Center(
-        child: Text(
-          'Quiz App',
-          style: TextStyle(
-            fontSize: 40,
-            color: Colors.white,
-          ),
-        ),
-      ),
+      child: Center(
+  child: Image.asset(
+    'assets/quiz-logo.png',
+    width: 200,
+  ),
+),
     );
   }
 }
